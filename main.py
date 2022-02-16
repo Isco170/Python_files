@@ -33,8 +33,9 @@ while True:
         for ficheiro in ficheiros:
             nomeSeparado = ficheiro.split("-")
             numero = nomeSeparado[1].split(".")
-            print(f"\nNome: {nomeSeparado[0]}\nNumero: {numero[0]}\nFicheiro: {ficheiro}\n")
-            enviar(ficheiro, numero[0])
+            if len(numero) == 2:
+                print(f"\nNome: {nomeSeparado[0]}\nNumero: {numero[0]}\nFicheiro: {ficheiro}\n")
+                enviar(ficheiro, numero[0])
     else:
         print("VAZIO")
 
