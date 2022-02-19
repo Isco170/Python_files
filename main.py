@@ -26,17 +26,18 @@ def enviar(fich, num):
     print(f"Enviando: {fich}, para: {num}")
     os.remove(url+ficheiro)
 
+def main():
 
-while True:
-    ficheiros = os.listdir(url)
-    if ficheiros: 
-        for ficheiro in ficheiros:
-            nomeSeparado = ficheiro.split("-")
-            numero = nomeSeparado[1].split(".")
-            if len(numero) == 2:
-                print(f"\nNome: {nomeSeparado[0]}\nNumero: {numero[0]}\nFicheiro: {ficheiro}\n")
-                enviar(ficheiro, numero[0])
-    else:
-        print("VAZIO")
+    while True:
+        ficheiros = os.listdir(url)
+        if ficheiros: 
+            for ficheiro in ficheiros:
+                nomeSeparado = ficheiro.split("-")
+                numero = nomeSeparado[1].split(".")
+                if len(numero) == 2:
+                    print(f"\nNome: {nomeSeparado[0]}\nNumero: {numero[0]}\nFicheiro: {ficheiro}\n")
+                    enviar(ficheiro, numero[0])
+        else:
+            print("VAZIO")
 
 
