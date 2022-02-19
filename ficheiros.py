@@ -22,11 +22,20 @@ url = './files/'
 # nomeSeparado = nome.split("-")
 # print(nomeSeparado)
 
-def enviar(fich, num):
-    print(f"Enviando: {fich}, para: {num}")
-    os.remove(url+ficheiro)
+def acao(link, ficheiro):
+    print(f"Link: {link}\nFicheiro: {ficheiro}\n")
+    separar = ficheiro.split("-")
+    numero = separar[0]
+    
+    if numero[0:2] != '123':
+        resposta = whatsmidia(link, numero)
+    try:
+        os.remove(url+ficheiro)
+        print("Removido")
+    except:
+        print("Sem ficheiro na pasta local")
 
-def main():
+def indice():
 
     while True:
         ficheiros = os.listdir(url)

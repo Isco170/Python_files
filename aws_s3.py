@@ -4,7 +4,7 @@ import boto3
 import os
 from botocore.exceptions import NoCredentialsError
 from botocore.client import Config
-from main import enviar
+import ficheiros
 url = './files/'
 
 session = boto3.Session(
@@ -52,7 +52,7 @@ def list_files(bucket):
     for bu in my_bucket.objects.all():
         link = gerarLink(bucket, bu.key)
         if link:
-            enviar(link, bu.key)
+            ficheiros.acao(link, bu.key)
 
 # upload_file('franciscotest')
 list_files('franciscotest')
