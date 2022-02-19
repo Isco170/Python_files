@@ -4,11 +4,12 @@ from access import account_sid, auth_token
 client = Client(account_sid, auth_token)
 
 def send(midia, numero):
-    numero = numero.strip()
-    print(numero)
+    numero = '+'+numero.strip()
+    
     try:
         message = client.messages.create(
             media_url= midia,
+            # body = midia,
             from_='whatsapp:+14155238886',
             to='whatsapp:' + str(numero)
         )
@@ -18,4 +19,4 @@ def send(midia, numero):
     except:
         return False
 
-print(send('https://www.asasdas.com', '258846461323'))
+# print(send('https://www.google.com', '258846461323'))
