@@ -18,4 +18,4 @@ def send(midia, numero):
     except:
         return False
 
-print(send('asasdasdds', '258846461323'))
+print(send('https://www.asasdas.com', '258846461323'))
