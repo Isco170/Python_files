@@ -4,7 +4,7 @@ import boto3
 import os
 from botocore.exceptions import NoCredentialsError
 from botocore.client import Config
-import ficheiros
+import ficheirosManip
 url = './files/'
 
 session = boto3.Session(
@@ -46,13 +46,15 @@ def upload_file(bucket):
             except NoCredentialsError:
                 print("Credentials not available")
                 # return False
+    else:
+        print("Sem faturas por enviar")
 
 def list_files(bucket):
     my_bucket = s3.Bucket(bucket)
     for bu in my_bucket.objects.all():
         link = gerarLink(bucket, bu.key)
         if link:
-            ficheiros.acao(link, bu.key)
+            ficheirosManip.acao(link, bu.key)
 
 # upload_file('franciscotest')
-list_files('franciscotest')
+# list_files('franciscotest')
