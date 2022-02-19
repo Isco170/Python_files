@@ -30,6 +30,7 @@ def apagarLocalmente(ficheiro):
         print("Sem ficheiro na pasta local")
 
 def acao(link, ficheiro):
+    
     separar = ficheiro.split("-")
     numero = separar[0]
     

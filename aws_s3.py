@@ -1,5 +1,4 @@
 import logging
-from multiprocessing.connection import Client
 from access import access_key, secret_access_key
 import boto3
 import os
@@ -67,7 +66,19 @@ def list_files(bucket):
         link = gerarLink(bucket, bu.key)
         if link:
             print(f"Link: {link}\n")
+
             ficheirosManip.acao(link, bu.key)  
 
-upload_file('franciscotest')
+def getInfo():
+    s3_cl = boto3.client('s3',
+        aws_access_key_id = access_key,
+        aws_secret_access_key = secret_access_key
+        )
+    version_id:str = s3_cl.head_object(
+        Bucket='franciscotest', Key = '258845451323 - fds.pdf'
+    )
+    print(version_id)
+
+
+# upload_file('franciscotest')
 # list_files('franciscotest')
