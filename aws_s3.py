@@ -61,13 +61,16 @@ def upload_file(bucket):
 
 
 def list_files(bucket):
+
     my_bucket = s3.Bucket(bucket)
     for bu in my_bucket.objects.all():
         link = gerarLink(bucket, bu.key)
         if link:
-            print(f"Link: {link}\n")
+            ficheirosLocais = os.listdir(url)
+            if bu.key in ficheirosLocais:
+                ficheirosManip.acao(link, bu.key)
 
-            ficheirosManip.acao(link, bu.key)  
+
 
 def getInfo():
     s3_cl = boto3.client('s3',
