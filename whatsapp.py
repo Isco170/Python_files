@@ -1,5 +1,5 @@
 from twilio.rest import Client
-from access import account_sid, auth_token
+from access import account_sid, auth_token, from_number
 
 client = Client(account_sid, auth_token)
 
@@ -10,7 +10,7 @@ def send(midia, numero):
         message = client.messages.create(
             media_url= midia,
             # body = midia,
-            from_='whatsapp:+14155238886',
+            from_= from_number,
             to='whatsapp:' + str(numero)
         )
 
@@ -19,4 +19,4 @@ def send(midia, numero):
     except:
         return False
 
-# print(send('https://www.google.com', '258846461323'))
+# print(send('https://images.unsplash.com/photo-1645192598815-df5a445ba803?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60', '258846461323'))
